@@ -1,0 +1,20 @@
+{
+  "name": "HotelsOnRoute",
+  "version": "1.0.0",
+  "description": "Directions Complex https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwivupjPsYTNAhUkxoMKHeSUDuoQFggkMAE&url=https%3A%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Fexamples%2Fdirections-complex&usg=AFQjCNFP77EADaiMqnVrXTiFH0rqDx5EyQ&sig2=fUupcIsVsFREKw0M8JDawQ&bvm=bv.123325700,d.aXo",
+  "main": "RT America Code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Shoukath@bitbucket.org/Shoukath/hotelsonroute.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Shoukath/hotelsonroute#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
