@@ -1,4 +1,4 @@
-(function() {
+var STATBoard = function() {
     'use strict';
 
     if (document.location.href.indexOf('favorite_id=86103') === -1) {
@@ -220,4 +220,4 @@
         });
     }, 500);
 
-})();
+};
