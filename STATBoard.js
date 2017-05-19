@@ -218,6 +218,30 @@ var STATBoard = function() {
                 });
             });
         });
+
+        $.when($.ajax("https://eiwork.mingle.thoughtworks.com/api/v2/projects/ewe_air_bellevue_team/cards/execute_mql.json?mql=SELECT number, 'story points', 'test id' where pod=STAT and (status='Experiment Active') order by priority"))
+        .then(function(response) {
+            if (response && response.length) {
+                $.each(response, function (index, story) {
+                    GM_xmlhttpRequest({
+                        method: "GET",
+                        url: 'https://tnl.prod.expedia.com/rest/experiment/' + story['Test ID'],
+                        onload: function(response) {
+                            var testData = JSON.parse(response.responseText);
+                            GM_xmlhttpRequest({
+                                method: "GET",
+                                url: 'https://tnl.prod.expedia.com/experiment/instance/' + testData.instance.id,
+                                onload: function(response) {
+                                    var testData = JSON.parse(response.responseText);
+                                    console.log(testData);
+                                }
+                            });
+                        }
+                    });
+                });
+
+            }
+        });
     }, 500);
 
 };
