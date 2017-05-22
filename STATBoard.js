@@ -187,7 +187,7 @@ var STATBoard = function() {
         window.scrollTo(0, jQuery('.grid-results').offset().top);
         // window.scrollTo(0, jQuery('.table-with-nothing-following-it').offset().top);
         if ( $(document).width() < 1500 ) {
-            $('#row_0 .card-name').css('fontSize', '12px');
+            $('#row_0 .card-name').css('font-size', '12px');
         }
 
         var url = 'https://eiwork.mingle.thoughtworks.com/api/v2/projects/ewe_air_bellevue_team/cards/17316.xml';
