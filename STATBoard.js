@@ -233,7 +233,7 @@ var STATBoard = function() {
                                 url: 'https://tnl.prod.expedia.com/experiment/instance/' + testData.instance.id,
                                 onload: function(response) {
                                     var testData = JSON.parse(response.responseText);
-                                    console.log(testData.experimentInstances[0].percentSampleSizeReached);
+                                    console.log(testData);
                                 }
                             });
                         }
