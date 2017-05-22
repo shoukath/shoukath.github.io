@@ -184,8 +184,8 @@ var STATBoard = function() {
             }
         }
 
-        // window.scrollTo(0, jQuery('.table-with-nothing-following-it').offset().top);
         window.scrollTo(0, jQuery('.grid-results').offset().top);
+        // window.scrollTo(0, jQuery('.table-with-nothing-following-it').offset().top);
 
         var url = 'https://eiwork.mingle.thoughtworks.com/api/v2/projects/ewe_air_bellevue_team/cards/17316.xml';
 
@@ -233,7 +233,7 @@ var STATBoard = function() {
                                 url: 'https://tnl.prod.expedia.com/experiment/instance/' + testData.instance.id,
                                 onload: function(response) {
                                     var testData = JSON.parse(response.responseText);
-                                    console.log(testData);
+                                    console.log(testData.experimentInstances[0].percentSampleSizeReached);
                                 }
                             });
                         }
