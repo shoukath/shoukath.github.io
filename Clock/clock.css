@@ -1,0 +1,16 @@
+#clock {
+	background: #000;
+	color: #FFF;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	font-size: 170px;
+}
