@@ -12,7 +12,6 @@ setInterval(function () {
 
 
 function clickHandler() {
-	alert('Clicked!');
 	document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
 
 	function requestFullscreen(element) {
