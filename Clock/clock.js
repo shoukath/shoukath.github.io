@@ -35,4 +35,4 @@ function clickHandler() {
 	}
 }
 
-// document.querySelector('#clock .content').addEventListener('click', clickHandler, false);
+document.querySelector('#clock .content').addEventListener('click', clickHandler, false);
