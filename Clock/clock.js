@@ -1,14 +1,20 @@
 var clock = {
 	getTime: function () {
 		return moment().format("h:mm");
+	},
+	getDate: function () {
+		return moment().format("dddd, MMMM Do");
 	}
 }
 
-document.querySelector('#clock .content').innerHTML = clock.getTime();
+function setClock() {
+	document.querySelector('#clock .time').innerHTML = clock.getTime();
+	document.querySelector('#clock .date').innerHTML = clock.getDate();
+}
 
-setInterval(function () {
-	document.querySelector('#clock .content').innerHTML = clock.getTime();
-}, 1000 * 15)
+setClock();
+
+setInterval(setClock, 1000 * 15)
 
 
 function clickHandler() {
@@ -29,4 +35,4 @@ function clickHandler() {
 	}
 }
 
-document.querySelector('#clock .content').addEventListener('click', clickHandler, false);
+// document.querySelector('#clock .content').addEventListener('click', clickHandler, false);

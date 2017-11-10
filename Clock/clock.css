@@ -1,16 +1,36 @@
-#clock {
+body {
 	background: #000;
 	color: #FFF;
 	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+#upper-container {
 	display: flex;
+	align-items: stretch;
 	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+#clock {
 	width: 100%;
 	display: flex;
-	position: absolute;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 }
 
-.content {
-	font-size: 360px;
+.time {
+	font-size: 370px;
+	line-height: 300px;
+}
+.date {
+	font-size: 55px;
+}
+
+#weather {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1; 
+	display: none;
 }
