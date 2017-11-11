@@ -40,7 +40,7 @@ document.querySelector('#clock .content').addEventListener('click', clickHandler
 var getWeatherInfo = function () {
 	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json')
 		.then(function(response) {
-			$('#weather').text(Math.round(response.current_observation.temp_f) + '&deg;');
+			$('#weather').html(Math.round(response.current_observation.temp_f) + '&deg;');
 		});
 };
 
