@@ -36,3 +36,13 @@ function clickHandler() {
 }
 
 document.querySelector('#clock .content').addEventListener('click', clickHandler, false);
+
+var getWeatherInfo = function () {
+	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json')
+		.then(function(response) {
+			$('#weather').text(Math.round(response.current_observation.temp_f));
+		});
+};
+
+setInterval(getWeatherInfo, 1000 * 60 * 15);
+getWeatherInfo();

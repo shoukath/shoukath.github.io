@@ -13,13 +13,12 @@ body {
 }
 #clock {
 	background: #000;
-	width: 100%;
+	width: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 }
-
 .time {
 	font-size: 370px;
 	line-height: 300px;
@@ -33,5 +32,6 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-grow: 1; 
-	display: none;
+	font-size: 370px;
+	/*display: none;*/
 }
