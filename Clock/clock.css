@@ -20,7 +20,7 @@ body {
 	text-align: center;
 }
 .time {
-	font-size: 300px;
+	font-size: 250px;
 	line-height: 300px;
 }
 .date {
@@ -32,5 +32,5 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-grow: 1; 
-	font-size: 300px;
+	font-size: 250px;
 }
