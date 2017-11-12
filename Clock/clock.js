@@ -38,7 +38,7 @@ function clickHandler() {
 document.querySelector('#upper-container').addEventListener('click', clickHandler, false);
 
 var getWeatherInfo = function () {
-	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json')
+	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json?date=' + new Date().toISOString())
 		.then(function(response) {
 			$('#weather').html(Math.round(response.current_observation.temp_f) + '&deg;');
 		});
