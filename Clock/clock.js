@@ -61,11 +61,13 @@ var getDayForecastInfo = function () {
 
 var set10DayForecast  = function(data) {
 	var forecastday = data.forecast.simpleforecast.forecastday;
+	$('.forecast-by-day table').empty();
 	$.each(forecastday, function (index, forecast) {
+		if (index === 0) return;
 		var high = forecast.high.fahrenheit;
 		var low = forecast.low.fahrenheit;
 		var day = forecast.date.weekday_short + ' ' + forecast.date.day;
-		if (index < 7) {
+		if (index < 8) {
 			$('.forecast-by-day table').append('<tr><td>' + day + ' </td><td>&nbsp;' + high + '&deg;/' + low + '&deg;</td></tr>');
 		}
 	})
