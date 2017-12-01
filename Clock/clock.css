@@ -27,10 +27,15 @@ body {
 	font-size: 55px;
 }
 
-#weather {
+.today {
+	font-size: 100px;
+}
+
+#weather-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-grow: 1; 
 	font-size: 250px;
+	text-align: center;
 }

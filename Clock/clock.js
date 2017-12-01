@@ -37,13 +37,25 @@ function clickHandler() {
 
 document.querySelector('#upper-container').addEventListener('click', clickHandler, false);
 
-var getWeatherInfo = function () {
+var getCurrentWeatherInfo = function () {
 	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json?date=' + new Date().toISOString())
 		.then(function(response) {
-			$('#weather').html(Math.round(response.current_observation.temp_f) + '&deg;');
+			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
 		});
 	// $('#weather').html(35 + '&deg;');
 };
 
-setInterval(getWeatherInfo, 1000 * 60 * 15);
-getWeatherInfo();
+setInterval(getCurrentWeatherInfo, 1000 * 60 * 15);
+getCurrentWeatherInfo();
+
+var getDayForecastInfo = function () {
+	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/forecast/q/IL/60089.json?date=' + new Date().toISOString())
+		.then(function(response) {
+			var high = response.forecast.simpleforecast.forecastday[0].high.fahrenheit;
+			var low = response.forecast.simpleforecast.forecastday[0].low.fahrenheit;
+			$('#weather-container .today').html(high + '&deg;/' + low + '&deg;');
+		});
+};
+
+setInterval(getDayForecastInfo, 1000 * 60 * 60 * 4);
+getDayForecastInfo();
