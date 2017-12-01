@@ -8,8 +8,8 @@ body {
 	background: #000;
 	display: flex;
 	align-items: stretch;
-	height: 100%;
-	position: absolute;
+	height: 615px;
+	/*position: absolute;*/
 	width: 100%;
 }
 #clock {
@@ -48,4 +48,20 @@ body {
 	font-size: 30px;
 	text-align: left;
 	line-height: 50px;
+	margin-top: 15px;
+}
+
+#lower-container .hourly table{
+	margin: 0 auto;
+	font-size: 45px;
+	text-align: center;
+}
+
+#lower-container .hourly table td{
+	padding: 0 12px
+}
+
+#lower-container .hourly table .temp td{
+	padding-top: 10px;
+	font-size: 55px;
 }

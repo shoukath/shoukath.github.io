@@ -75,3 +75,36 @@ var set10DayForecast  = function(data) {
 
 setInterval(getDayForecastInfo, 1000 * 60 * 60 * 4);
 getDayForecastInfo();
+
+
+var setHourlyForecast = function(called) {
+	if (moment().minutes() < 45 && !called) { return; }
+	var url = 'http://api.wunderground.com/api/fecf8ea800958a0e/hourly/q/IL/60089.json?date=' + new Date().toISOString();
+	$.ajax(url)
+		.then(function(response) {
+			$('.hourly table').empty();
+			var timeCell = '';
+			var tempCell = '';
+			$.each(response.hourly_forecast, function (index, forecast) {
+				var time = forecast.FCTTIME.civil.replace(':00 ', '');
+				var temp = forecast.temp.english;
+				var feelsLike = forecast.feelslike.english;
+
+				if (index < 10) {
+					timeCell = timeCell + '<td>'+time+'</td>';
+				}
+			});
+			$.each(response.hourly_forecast, function (index, forecast) {
+				var temp = forecast.temp.english;
+				var feelsLike = forecast.feelslike.english;
+
+				if (index < 10) {
+					tempCell = tempCell + '<td>'+temp+'&deg;</td>';
+				}
+			});
+			$('.hourly table').append('<tr>'+timeCell+'</tr>');
+			$('.hourly table').append('<tr class="temp">'+tempCell+'</tr>');
+		});
+};
+setInterval(setHourlyForecast, 1000 * 60);
+setHourlyForecast('first');
