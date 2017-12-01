@@ -49,12 +49,26 @@ setInterval(getCurrentWeatherInfo, 1000 * 60 * 15);
 getCurrentWeatherInfo();
 
 var getDayForecastInfo = function () {
-	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/forecast/q/IL/60089.json?date=' + new Date().toISOString())
+	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/forecast10day/q/IL/60089.json?date=' + new Date().toISOString())
 		.then(function(response) {
 			var high = response.forecast.simpleforecast.forecastday[0].high.fahrenheit;
 			var low = response.forecast.simpleforecast.forecastday[0].low.fahrenheit;
 			$('#weather-container .today').html(high + '&deg;/' + low + '&deg;');
+
+			set10DayForecast(response);
 		});
+};
+
+var set10DayForecast  = function(data) {
+	var forecastday = data.forecast.simpleforecast.forecastday;
+	$.each(forecastday, function (index, forecast) {
+		var high = forecast.high.fahrenheit;
+		var low = forecast.low.fahrenheit;
+		var day = forecast.date.weekday_short + ' ' + forecast.date.day;
+		if (index < 7) {
+			$('.forecast-by-day table').append('<tr><td>' + day + ' </td><td>&nbsp;' + high + '&deg;/' + low + '&deg;</td></tr>');
+		}
+	})
 };
 
 setInterval(getDayForecastInfo, 1000 * 60 * 60 * 4);
