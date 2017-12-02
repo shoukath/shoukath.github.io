@@ -85,25 +85,21 @@ var setHourlyForecast = function(called) {
 			$('.hourly table').empty();
 			var timeCell = '';
 			var tempCell = '';
+			var feelslikeCell = '';
 			$.each(response.hourly_forecast, function (index, forecast) {
 				var time = forecast.FCTTIME.civil.replace(':00 ', '');
 				var temp = forecast.temp.english;
 				var feelsLike = forecast.feelslike.english;
 
-				if (index < 10) {
+				if (((index % 2) === 0 || index < 5) && index < 16) {
 					timeCell = timeCell + '<td>'+time+'</td>';
-				}
-			});
-			$.each(response.hourly_forecast, function (index, forecast) {
-				var temp = forecast.temp.english;
-				var feelsLike = forecast.feelslike.english;
-
-				if (index < 10) {
 					tempCell = tempCell + '<td>'+temp+'&deg;</td>';
+					feelslikeCell = feelslikeCell + '<td>'+feelsLike+'&deg;</td>';
 				}
 			});
 			$('.hourly table').append('<tr>'+timeCell+'</tr>');
 			$('.hourly table').append('<tr class="temp">'+tempCell+'</tr>');
+			// $('.hourly table').append('<tr class="feelslike">'+feelslikeCell+'</tr>');
 		});
 };
 setInterval(setHourlyForecast, 1000 * 60);
