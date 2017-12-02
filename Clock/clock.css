@@ -51,6 +51,10 @@ body {
 	margin-top: 15px;
 }
 
+#lower-container {
+	padding-bottom: 50px;
+}
+
 #lower-container .hourly table{
 	margin: 0 auto;
 	font-size: 45px;
