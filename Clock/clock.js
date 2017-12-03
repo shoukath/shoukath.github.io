@@ -89,11 +89,12 @@ var setHourlyForecast = function(called) {
 			$.each(response.hourly_forecast, function (index, forecast) {
 				var time = forecast.FCTTIME.civil.replace(':00 ', '');
 				var temp = forecast.temp.english;
+				var image = '<img src="'+forecast.icon_url+'"/><br>';
 				var feelsLike = forecast.feelslike.english;
 
 				if (((index % 2) === 0 || index < 5) && index < 16) {
 					timeCell = timeCell + '<td>'+time+'</td>';
-					tempCell = tempCell + '<td>'+temp+'&deg;</td>';
+					tempCell = tempCell + '<td>'+image+temp+'&deg;</td>';
 					feelslikeCell = feelslikeCell + '<td>'+feelsLike+'&deg;</td>';
 				}
 			});
@@ -102,5 +103,5 @@ var setHourlyForecast = function(called) {
 			// $('.hourly table').append('<tr class="feelslike">'+feelslikeCell+'</tr>');
 		});
 };
-setInterval(setHourlyForecast, 1000 * 60);
+setInterval(setHourlyForecast, 1000 * 60 * 5);
 setHourlyForecast('first');
