@@ -78,7 +78,7 @@ getDayForecastInfo();
 
 
 var setHourlyForecast = function(called) {
-	if (moment().minutes() < 45 && !called) { return; }
+	if (moment().minutes() > 15 && !called) { return; }
 	var url = 'http://api.wunderground.com/api/fecf8ea800958a0e/hourly/q/IL/60089.json?date=' + new Date().toISOString();
 	$.ajax(url)
 		.then(function(response) {
