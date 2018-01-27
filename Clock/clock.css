@@ -42,8 +42,13 @@ body {
 	text-align: center;
 }
 
+#weather-container .inside {
+	font-size: 80px;
+}
+
 #weather-container .current {
 	font-size: 240px;
+	line-height: 235px;
 }
 
 .today {

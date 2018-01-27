@@ -47,6 +47,12 @@ var getCurrentWeatherInfo = function () {
 			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
 		});
 	// $('#weather').html(35 + '&deg;');
+	$.ajax('http://192.168.1.18:3001/neststatus')
+		.done(function(response){
+			var inside_temp = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.ambient_temperature_f;
+			var humidity = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.humidity;
+			$('.weather .inside').html(inside_temp + '&deg;/' + humidity + '%');
+		});
 };
 
 setInterval(getCurrentWeatherInfo, 1000 * 60 * 15);
@@ -110,3 +116,4 @@ var setHourlyForecast = function(called) {
 };
 setInterval(setHourlyForecast, 1000 * 60 * 5);
 setHourlyForecast('first');
+
