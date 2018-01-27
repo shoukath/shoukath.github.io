@@ -21,10 +21,16 @@ body {
 }
 .time {
 	font-size: 230px;
-	line-height: 300px;
+	line-height: 250px;
 }
 .date {
-	font-size: 45px;
+	font-size: 70px;
+	text-align: right;
+}
+.day {
+	font-size: 70px;
+	text-align: left;
+	padding-left: 25px;
 }
 
 
@@ -37,7 +43,7 @@ body {
 }
 
 #weather-container .current {
-	font-size: 250px;
+	font-size: 240px;
 }
 
 .today {
@@ -53,6 +59,7 @@ body {
 
 #weather-container .forecast-by-day .icon{
 	width: 60%;
+	vertical-align: sub;
 }
 
 #lower-container {

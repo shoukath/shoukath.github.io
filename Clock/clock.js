@@ -3,13 +3,17 @@ var clock = {
 		return moment().format("h:mm");
 	},
 	getDate: function () {
-		return moment().format("dddd, MMMM Do");
+		return moment().format("MMMM Do");
+	},
+	getDay: function () {
+		return moment().format("dddd");
 	}
 }
 
 function setClock() {
 	document.querySelector('#clock .time').innerHTML = clock.getTime();
 	document.querySelector('#clock .date').innerHTML = clock.getDate();
+	document.querySelector('#clock .day').innerHTML = clock.getDay();
 }
 
 setClock();
