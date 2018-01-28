@@ -20,6 +20,29 @@ setClock();
 
 setInterval(setClock, 1000 * 15)
 
+function insideData () {
+	$.ajax('http://192.168.1.18:3001/neststatus')
+		.done(function(response){
+			var inside_temp = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.ambient_temperature_f;
+			var humidity = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.humidity;
+			if (response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.hvac_state === 'off') {
+				var iconName = '';
+			} else if (response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.hvac_state === 'heating') {
+				var iconName = '-heat';
+			}
+			var icon = '<img alt="" src="https://nest.com/support/images/misc-assets-icons/thermostat-icon'+iconName+'.png" width="50">';
+			console.log(icon);
+			$('.weather .inside').html(icon + inside_temp + '&deg;/' + humidity + '%');
+		})
+		.fail(function () {
+			$('.weather .inside').html('N/A');
+		});
+}
+
+insideData();
+
+setInterval(insideData, 1000 * 60);
+
 
 function clickHandler() {
 	document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
@@ -47,12 +70,6 @@ var getCurrentWeatherInfo = function () {
 			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
 		});
 	// $('#weather').html(35 + '&deg;');
-	$.ajax('http://192.168.1.18:3001/neststatus')
-		.done(function(response){
-			var inside_temp = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.ambient_temperature_f;
-			var humidity = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.humidity;
-			$('.weather .inside').html(inside_temp + '&deg;/' + humidity + '%');
-		});
 };
 
 setInterval(getCurrentWeatherInfo, 1000 * 60 * 15);
