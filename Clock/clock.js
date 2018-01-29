@@ -34,7 +34,7 @@ function insideData () {
 				var iconName = 'thermostat-icon-cool';
 			}
 			var targetTemp = thermostat.target_temperature_f;
-			var homeIcon = '<img alt="" src="https://we-mobi.com/wp-content/uploads/2014/10/com_nestlabs_android.png" width="50" style="margin-right: 5px;">';
+			var homeIcon = '<img alt="" class="home-icon" src="http://www.athletesnest.com/Images/icons/home.png" width="50" style="margin-right: 5px;">';
 
 			var icon = '<img alt="" src="https://nest.com/support/images/misc-assets-icons/'+iconName+'.png" width="50">';
 			var targetTemp = '<div>'+icon+targetTemp+'&deg;</div>';
@@ -102,7 +102,7 @@ var set10DayForecast  = function(data) {
 		var low = forecast.low.fahrenheit;
 		var day = forecast.date.weekday_short + ' ' + forecast.date.day;
 		var iconUrl = '<img src="' + forecast.icon_url + '" class="icon"/>';
-		if (index < 8) {
+		if (index < 9) {
 			$('.forecast-by-day table').append('<tr><td>' + day + ' </td><td>&nbsp;'+iconUrl+'</td><td>' + high + '&deg;/' + low + '&deg;</td></tr>');
 		}
 	})
