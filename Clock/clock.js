@@ -23,16 +23,23 @@ setInterval(setClock, 1000 * 15)
 function insideData () {
 	$.ajax('http://192.168.1.18:3001/neststatus')
 		.done(function(response){
-			var inside_temp = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.ambient_temperature_f;
-			var humidity = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.humidity;
-			if (response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.hvac_state === 'off') {
-				var iconName = '';
-			} else if (response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM.hvac_state === 'heating') {
-				var iconName = '-heat';
+			var thermostat = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM;
+			var inside_temp = thermostat.ambient_temperature_f;
+			var humidity = thermostat.humidity;
+			if (thermostat.hvac_state === 'off') {
+				var iconName = thermostat.hvac_mode === 'eco' ? 'nest-leaf-icon' : 'thermostat-icon';
+			} else if (thermostat.hvac_state === 'heating') {
+				var iconName = 'thermostat-icon-heat';
+			} else if (thermostat.hvac_state === 'cooling') {
+				var iconName = 'thermostat-icon-cool';
 			}
-			var icon = '<img alt="" src="https://nest.com/support/images/misc-assets-icons/thermostat-icon'+iconName+'.png" width="50">';
+			var targetTemp = thermostat.target_temperature_f;
+			var homeIcon = '<img alt="" src="https://we-mobi.com/wp-content/uploads/2014/10/com_nestlabs_android.png" width="50" style="margin-right: 5px;">';
+
+			var icon = '<img alt="" src="https://nest.com/support/images/misc-assets-icons/'+iconName+'.png" width="50">';
+			var targetTemp = '<div>'+icon+targetTemp+'&deg;</div>';
 			console.log(icon);
-			$('.weather .inside').html(icon + inside_temp + '&deg;/' + humidity + '%');
+			$('.weather .inside').html(targetTemp + homeIcon + inside_temp + '&deg;/' + humidity + '%');
 		})
 		.fail(function () {
 			$('.weather .inside').html('N/A');
