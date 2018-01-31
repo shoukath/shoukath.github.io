@@ -37,7 +37,7 @@ function insideData () {
 			var iconName = 'thermostat-icon-cool';
 		}
 		var targetTemp = thermostat.target_temperature_f;
-		var homeIcon = '<img alt="" class="home-icon" src="http://www.athletesnest.com/Images/icons/home.png" width="50" style="margin-right: 5px;">';
+		var homeIcon = '<img alt="" class="home-icon" src="http://www.athletesnest.com/Images/icons/home.png" width="50">';
 
 		var icon = '<img alt="" class="status-icon" src="https://nest.com/support/images/misc-assets-icons/'+iconName+'.png" width="50">';
 		var targetTemp = '<div>'+icon+targetTemp+'&deg;</div>';
