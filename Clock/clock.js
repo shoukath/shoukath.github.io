@@ -21,29 +21,32 @@ setClock();
 setInterval(setClock, 1000 * 15)
 
 function insideData () {
-	$.ajax('http://192.168.1.18:3001/neststatus')
-		.done(function(response){
-			var thermostat = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM;
-			var inside_temp = thermostat.ambient_temperature_f;
-			var humidity = thermostat.humidity;
-			if (thermostat.hvac_state === 'off') {
-				var iconName = thermostat.hvac_mode === 'eco' ? 'nest-leaf-icon' : 'thermostat-icon';
-			} else if (thermostat.hvac_state === 'heating') {
-				var iconName = 'thermostat-icon-heat';
-			} else if (thermostat.hvac_state === 'cooling') {
-				var iconName = 'thermostat-icon-cool';
-			}
-			var targetTemp = thermostat.target_temperature_f;
-			var homeIcon = '<img alt="" class="home-icon" src="http://www.athletesnest.com/Images/icons/home.png" width="50" style="margin-right: 5px;">';
+	$.ajax({
+		url: 'https://9em9ww2qab.execute-api.us-east-1.amazonaws.com/dev/get/status',
+		cache: false
+	})
+	.done(function(response){
+		var thermostat = response.devices.thermostats.PuDeJsozUoTDCVDQJgiUVL9j2eo3EvKM;
+		var inside_temp = thermostat.ambient_temperature_f;
+		var humidity = thermostat.humidity;
+		if (thermostat.hvac_state === 'off') {
+			var iconName = thermostat.hvac_mode === 'eco' ? 'nest-leaf-icon' : 'thermostat-icon';
+		} else if (thermostat.hvac_state === 'heating') {
+			var iconName = 'thermostat-icon-heat';
+		} else if (thermostat.hvac_state === 'cooling') {
+			var iconName = 'thermostat-icon-cool';
+		}
+		var targetTemp = thermostat.target_temperature_f;
+		var homeIcon = '<img alt="" class="home-icon" src="http://www.athletesnest.com/Images/icons/home.png" width="50" style="margin-right: 5px;">';
 
-			var icon = '<img alt="" src="https://nest.com/support/images/misc-assets-icons/'+iconName+'.png" width="50">';
-			var targetTemp = '<div>'+icon+targetTemp+'&deg;</div>';
-			console.log(icon);
-			$('.weather .inside').html(targetTemp + homeIcon + inside_temp + '&deg;/' + humidity + '%');
-		})
-		.fail(function () {
-			$('.weather .inside').html('N/A');
-		});
+		var icon = '<img alt="" class="status-icon" src="https://nest.com/support/images/misc-assets-icons/'+iconName+'.png" width="50">';
+		var targetTemp = '<div>'+icon+targetTemp+'&deg;</div>';
+		console.log(icon);
+		$('.weather .inside').html(targetTemp + homeIcon + inside_temp + '&deg;/' + humidity + '%');
+	})
+	.fail(function () {
+		$('.weather .inside').html('N/A');
+	});
 }
 
 insideData();

@@ -55,6 +55,10 @@ body {
     opacity: 0.5;
 }
 
+.status-icon {
+	padding: 0 10px;
+}
+
 .today {
 	font-size: 100px;
 }
