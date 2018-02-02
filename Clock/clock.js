@@ -47,6 +47,20 @@ function insideData () {
 	.fail(function () {
 		$('.weather .inside').html('N/A');
 	});
+
+	secondBedroomData();
+}
+
+var secondBedroomData = function () {
+	var humidityRequest = $.ajax('http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v5');
+	var tempRequest = $.ajax('http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v6');
+	$.when(humidityRequest, tempRequest).then(function (humidityResponse, tempResponse) {
+		var humidity = Math.round(humidityResponse[0][0]);
+		var temperature = Math.round(tempResponse[0][0]);
+		$('#second-bedroom').html(temperature + '&deg;/' + humidity + '%');
+	}).fail(function() {
+		$('#second-bedroom').html('N/A');
+	})
 }
 
 insideData();
@@ -105,7 +119,7 @@ var set10DayForecast  = function(data) {
 		var low = forecast.low.fahrenheit;
 		var day = forecast.date.weekday_short + ' ' + forecast.date.day;
 		var iconUrl = '<img src="' + forecast.icon_url + '" class="icon"/>';
-		if (index < 9) {
+		if (index < 8) {
 			$('.forecast-by-day table').append('<tr><td>' + day + ' </td><td>&nbsp;'+iconUrl+'</td><td>' + high + '&deg;/' + low + '&deg;</td></tr>');
 		}
 	})
