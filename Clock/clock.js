@@ -52,8 +52,14 @@ function insideData () {
 }
 
 var secondBedroomData = function () {
-	var humidityRequest = $.ajax('http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v5');
-	var tempRequest = $.ajax('http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v6');
+	var humidityRequest = $.ajax({
+		url: 'http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v5',
+		cache: false
+	});
+	var tempRequest = $.ajax({
+		url: 'http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v6',
+		cache: false
+	});
 	$.when(humidityRequest, tempRequest).then(function (humidityResponse, tempResponse) {
 		var humidity = Math.round(humidityResponse[0][0]);
 		var temperature = Math.round(tempResponse[0][0]);
