@@ -52,6 +52,10 @@ function insideData () {
 }
 
 var secondBedroomData = function () {
+	var connectionStatusRequest = $.ajax({
+		url: 'http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/isHardwareConnected',
+		cache: false
+	});
 	var humidityRequest = $.ajax({
 		url: 'http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v5',
 		cache: false
@@ -60,10 +64,15 @@ var secondBedroomData = function () {
 		url: 'http://blynk-cloud.com/f6b571c113bf4ac09b2072d8cab06e10/get/v6',
 		cache: false
 	});
-	$.when(humidityRequest, tempRequest).then(function (humidityResponse, tempResponse) {
-		var humidity = Math.round(humidityResponse[0][0]);
-		var temperature = Math.round(tempResponse[0][0]);
-		$('#second-bedroom').html(temperature + '&deg;/' + humidity + '%');
+
+	$.when(connectionStatusRequest, humidityRequest, tempRequest).then(function (connectionStatusResponse, humidityResponse, tempResponse) {
+		if(connectionStatusResponse[0]) {
+			var humidity = Math.round(humidityResponse[0][0]);
+			var temperature = Math.round(tempResponse[0][0]);
+			$('#second-bedroom').html(temperature + '&deg;/' + humidity + '%');
+		} else {
+			$('#second-bedroom').html('<i style="color: #666;">Offline</i>');
+		}
 	}).fail(function() {
 		$('#second-bedroom').html('N/A');
 	})
