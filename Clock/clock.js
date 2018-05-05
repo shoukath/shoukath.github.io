@@ -70,6 +70,9 @@ var secondBedroomData = function () {
 			var humidity = Math.round(humidityResponse[0][0]);
 			var temperature = Math.round(tempResponse[0][0]);
 			$('#second-bedroom').html(temperature + '&deg;/' + humidity + '%');
+			if (temperature >= 80) {
+				$('#second-bedroom').addClass('alarm');
+			}
 		} else {
 			$('#second-bedroom').html('<i style="color: #666;">Offline</i>');
 		}

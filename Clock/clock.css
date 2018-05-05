@@ -37,9 +37,20 @@ body {
 	border-bottom: 1px solid white;
     font-size: 70px;
     text-align: center;
-    height: 70px;
+	height: 70px;
+	line-height: 66px;
 }
-
+@keyframes alarm {
+    40% {
+        background-color: #ce3839;
+    }
+}
+.alarm {
+    animation-name: alarm;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
 
 #weather-container {
 	display: flex;
