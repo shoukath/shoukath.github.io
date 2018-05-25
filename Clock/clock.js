@@ -158,7 +158,7 @@ var setHourlyForecast = function(called) {
 			var feelslikeCell = '';
 			$.each(response.hourly_forecast, function (index, forecast) {
 				var time = forecast.FCTTIME.civil.replace(':00 ', '');
-				var temp = forecast.temp.english;
+				var temp = Math.round(forecast.temp.english);
 				var image = '<img src="'+forecast.icon_url+'"/><br>';
 				var feelsLike = forecast.feelslike.english;
 
