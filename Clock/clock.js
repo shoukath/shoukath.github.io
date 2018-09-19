@@ -41,7 +41,6 @@ function insideData () {
 
 		var icon = '<img alt="" class="status-icon" src="https://nest.com/support/images/misc-assets-icons/'+iconName+'.png" width="50">';
 		var targetTemp = '<div>'+icon+targetTemp+'&deg;</div>';
-		console.log(icon);
 		$('.weather .inside').html(targetTemp + homeIcon + inside_temp + '&deg;/' + humidity + '%');
 	})
 	.fail(function () {
@@ -176,3 +175,33 @@ var setHourlyForecast = function(called) {
 setInterval(setHourlyForecast, 1000 * 60 * 5);
 setHourlyForecast('first');
 
+// Camera Control
+var isEndpointActive = true;
+var motionAjaxCallIntervalId = setInterval(function () {
+	if(!isEndpointActive) {return;}
+	$.ajax({
+		url: 'http://192.168.1.3:3000/motion-status',
+		timeout: 1000
+	})
+	.always(function(response) {
+		if (response === '1') {
+			$('#camera-container').addClass('show');
+		} else {
+			$('#camera-container').removeClass('show');
+		}
+	});
+}, 1000);
+
+var checkMotionAppStatus = function () {
+	$.ajax({
+		url: 'http://192.168.1.3:3000/motion-status',
+		timeout: 1000
+	}).done(function () {
+		isEndpointActive = true;
+	}).fail(function () {
+		isEndpointActive = false;
+	})
+}
+
+setInterval(checkMotionAppStatus, 60000);
+checkMotionAppStatus();

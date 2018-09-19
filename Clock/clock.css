@@ -4,6 +4,23 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 }
+#camera-container {
+	display: none;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#camera-container.show {
+	display: flex;
+}
+.camera {
+	width: 800px;
+	height: 600px;
+	background: #FFF;
+	border: 3px solid #ccc;
+}
 #upper-container {
 	background: #000;
 	display: flex;
