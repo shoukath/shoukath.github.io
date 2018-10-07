@@ -185,9 +185,11 @@ var motionAjaxCallIntervalId = setInterval(function () {
 	})
 	.always(function(response) {
 		if (response === '1') {
-			$('#camera-container').addClass('show');
+			if ($('#camera-container .camera').length === 0) {
+				$('#camera-container').append(`<img class="camera" src="http://192.168.1.6:8081/?${new Date().getTime()}"></img>`);
+			}
 		} else {
-			$('#camera-container').removeClass('show');
+			$('#camera-container .camera').remove();
 		}
 	});
 }, 1000);
