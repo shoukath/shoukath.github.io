@@ -20,27 +20,31 @@
         @width: 4px;
         background: @color-cream;
         width: @width;
-        height: 50px;
+        height: 35px;
         display: inline-block;
         border-radius: @width/2;
     }
     .down-arrow {
+        @down-arrow-size: 40px;
         display: inline-block;
-        width: 50px;
-        height: 50px;
+        width: @down-arrow-size;
+        height: @down-arrow-size;
         background: @color-cream;
         svg {
-            width: 70%;
+            width: 50%;
         }
     }
 }
 
 #hero-image {
-    width: 50%;
+    width: 75%;
     -webkit-filter: drop-shadow(5px 95px 65px #222);
     filter:         drop-shadow(5px 95px 65px #222);
 }
 
 #work {
     margin-top: 30px;
+}
+
+@media screen and (min-width: 768px) {
 }

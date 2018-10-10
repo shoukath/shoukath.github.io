@@ -12,21 +12,21 @@
 .hero .pipe {
   background: #D4AF8E;
   width: 4px;
-  height: 50px;
+  height: 35px;
   display: inline-block;
   border-radius: 2px;
 }
 .hero .down-arrow {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: #D4AF8E;
 }
 .hero .down-arrow svg {
-  width: 70%;
+  width: 50%;
 }
 #hero-image {
-  width: 50%;
+  width: 75%;
   -webkit-filter: drop-shadow(5px 95px 65px #222);
   filter: drop-shadow(5px 95px 65px #222);
 }
