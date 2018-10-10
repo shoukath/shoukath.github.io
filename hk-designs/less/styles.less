@@ -1,0 +1,46 @@
+@color-cream: #D4AF8E;
+.navbar {
+    // background: #be1e2d;
+    // position: fixed;
+}
+#container {
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+
+.hero {
+    // display: flex;
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(#be1e2d, #8f0203);
+    color: #fff;
+    text-align: center;
+    .pipe {
+        @width: 4px;
+        background: @color-cream;
+        width: @width;
+        height: 50px;
+        display: inline-block;
+        border-radius: @width/2;
+    }
+    .down-arrow {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: @color-cream;
+        svg {
+            width: 70%;
+        }
+    }
+}
+
+#hero-image {
+    width: 50%;
+    -webkit-filter: drop-shadow(5px 95px 65px #222);
+    filter:         drop-shadow(5px 95px 65px #222);
+}
+
+#work {
+    margin-top: 30px;
+}
