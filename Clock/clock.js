@@ -186,7 +186,7 @@ var motionAjaxCallIntervalId = setInterval(function () {
 	.always(function(response) {
 		if (response === '1') {
 			if ($('#camera-container .camera').length === 0) {
-				$('#camera-container').append(`<img class="camera" src="http://192.168.1.6:8081/?${new Date().getTime()}"></img>`);
+				$('#camera-container').append('<img class="camera" src="http://192.168.1.6:8081/"></img>');
 			}
 		} else {
 			$('#camera-container .camera').remove();
