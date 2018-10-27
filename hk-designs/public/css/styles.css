@@ -62,13 +62,15 @@
   background-color: #272530;
   background-size: 100%;
 }
-#contact-us #contact-us-form-container input[type=text] {
+#contact-us #contact-us-form-container input[type=text],
+#contact-us #contact-us-form-container input[type=email] {
   background: transparent;
   border: none;
   border-bottom: 3px solid #D4AF8E;
   color: white;
 }
-#contact-us #contact-us-form-container input[type=text]::placeholder {
+#contact-us #contact-us-form-container input[type=text]::placeholder,
+#contact-us #contact-us-form-container input[type=email]::placeholder {
   color: white;
 }
 #contact-us #contact-us-form-container input[type=submit] {
