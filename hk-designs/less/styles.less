@@ -81,11 +81,14 @@
         background-image: url(../images/Dotted_World-Map.svg);
         background-color: @color-dark-blue;
         background-size: 100%;
+        input, button {
+            border-radius: 0;
+            color: white;
+        }
         input[type=text], input[type=email]  {
             background: transparent;
             border: none;
             border-bottom: 3px solid @color-cream;
-            color: white;
             &::placeholder {
                 color: white;
             }
@@ -93,7 +96,6 @@
         input[type=submit], button[type=submit]  {
             background: @color-dark-blue;
             border: 2px solid @color-cream;
-            color: white;
             border-radius: 30px;
             padding: 0 20px;
         }

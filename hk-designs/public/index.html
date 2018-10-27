@@ -113,39 +113,43 @@
           <h4 class="section-header text-center text-uppercase font-weight-bold">Say hello!</h4>
           <div class="row">
               <div id="contact-us-form-container" class="col-md-8">
-                <form action="">
+                  <form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="AjaxForm">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
                       </div>
                       <div class="form-group col-md-6">
                         <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                       </div>
                     </div>
                     <div class="form-row">
-                      <input type="text" class="form-control" id="inputAddress" placeholder="Subjext">
+                      <div class="form-group col-md-12">
+                        <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                      </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-9">
                         <input type="text" class="form-control" id="inputMessage" placeholder="Write your message">
                       </div>
-                      <div class="form-group col-md-3">
+                      <div class="form-group col-md-3 pt-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </div>
                     </div>
                 </form>
               </div>
-              <div id="contact-info" class="col-md-4 text-right">
+              <div id="contact-info" class="col-md-4 text-right d-flex">
+                <div>
                   +91- 9538601012
                   <p class="font-weight-bold">hello@haamidkhan.com</p>
                   Logos
+                </div>
               </div>
             </div>
       </div>
     </div>
     <!-- Begin Freedback Form -->
 <!-- DO NOT EDIT YOUR FORM HERE, PLEASE LOG IN AND EDIT AT FREEDBACK.COM -->
-<form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="AjaxForm" style="display: none;">
+<form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="AjaxForm1" style="display: none;">
 	<div>
 		<input type="hidden" name="acctid" id="acctid" value="sags9nntwrn3uthw" />
 		<input type="hidden" name="formid" id="formid" value="1309643" />
@@ -219,10 +223,10 @@ This <a href="http://www.freedback.com">HTML form</a> was created by Freedback.
                   dataType: 'json',
                   data    : $(this).serialize(),
                   success : function( data ) {
-                               alert('Submitted');
+                              //  alert('Submitted');
                   },
                   error   : function( xhr, err ) {
-                               alert('Error');     
+                              //  alert('Error');     
                   }
               });    
               return false;
