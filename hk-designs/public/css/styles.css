@@ -48,10 +48,29 @@
 }
 .about-img {
   background-image: url(../images/About_bg[with-tint].png);
+  background-size: 100%;
   color: white;
 }
-#contact-us #contact-us-form {
+#contact-us #contact-us-form-container {
   background-image: url(../images/Dotted_World-Map.svg);
+  background-color: #272530;
+  background-size: 100%;
+}
+#contact-us #contact-us-form-container input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #D4AF8E;
+  color: white;
+}
+#contact-us #contact-us-form-container input[type=text]::placeholder {
+  color: white;
+}
+#contact-us #contact-us-form-container input[type=submit] {
+  background: #272530;
+  border: 2px solid #D4AF8E;
+  color: white;
+  border-radius: 30px;
+  padding: 0 20px;
 }
 #contact-us #contact-info {
   background: #D4AF8E;
