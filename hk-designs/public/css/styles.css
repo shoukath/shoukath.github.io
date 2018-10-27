@@ -87,6 +87,9 @@
 #contact-us #contact-info {
   background: #D4AF8E;
 }
+#contact-us #contact-info .social-networks img {
+  height: 24px;
+}
 #work {
   margin-top: 30px;
 }
