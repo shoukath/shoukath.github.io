@@ -123,11 +123,90 @@
             </div>
       </div>
     </div>
+    <!-- Begin Freedback Form -->
+<!-- DO NOT EDIT YOUR FORM HERE, PLEASE LOG IN AND EDIT AT FREEDBACK.COM -->
+<form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="AjaxForm">
+	<div>
+		<input type="hidden" name="acctid" id="acctid" value="sags9nntwrn3uthw" />
+		<input type="hidden" name="formid" id="formid" value="1309643" />
+		<input type="hidden" name="required_vars" id="required_vars" value="name,email" />
+	</div>
+	<table cellspacing="5" cellpadding="5" border="0">
+		<tr>
+			<td valign="top">
+				<strong>Name:</strong>
+			</td>
+			<td valign="top">
+				<input type="text" name="name" id="name" size="40" value="" />
+				
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Email Address:</strong>
+			</td>
+			<td valign="top">
+				<input type="text" name="email" id="email" size="40" value="" />
+				
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Subject</strong>
+			</td>
+			<td valign="top">
+				<input type="text" name="field-8f1e5d2ce0d0a14" id="field-8f1e5d2ce0d0a14" size="40" value="" />
+				
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Message</strong>
+			</td>
+			<td valign="top">
+				<textarea name="field-629cfa0ad934f5e" id="field-629cfa0ad934f5e" rows="6" cols="40"></textarea>
+				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value=" Submit Form " />
+			</td>
+		</tr>
+	</table>
+</form>
+<br><center><font face="Arial, Helvetica" size="1"><b>
+This <a href="http://www.freedback.com">HTML form</a> was created by Freedback.
+</b></font></center>
+<!-- End Freedback Form -->
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(document).on('submit', 'form.AjaxForm', function() {            
+              jQuery.ajax({
+                  url     : $(this).attr('action'),
+                  type    : $(this).attr('method'),
+                  dataType: 'json',
+                  data    : $(this).serialize(),
+                  success : function( data ) {
+                               alert('Submitted');
+                  },
+                  error   : function( xhr, err ) {
+                               alert('Error');     
+                  }
+              });    
+              return false;
+          });
+      </script>
   </body>
 </html>
