@@ -10,4 +10,5 @@ $form.find('button[type="submit"]').on('click', function(e) {
         dataType: "json",
         data: $form.serialize()
     });
+    $form.replaceWith('Thanks! Your information has been submitted');
 });

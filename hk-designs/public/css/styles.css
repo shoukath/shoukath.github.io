@@ -65,6 +65,7 @@
   background-image: url(../images/Dotted_World-Map.svg);
   background-color: #272530;
   background-size: 100%;
+  color: #fff;
 }
 #contact-us #contact-us-form-container input,
 #contact-us #contact-us-form-container button {
