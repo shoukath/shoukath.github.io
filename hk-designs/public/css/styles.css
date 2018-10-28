@@ -1,3 +1,6 @@
+.navbar-brand #logo-svg {
+  fill: #FFF;
+}
 #container {
   overflow-y: scroll;
   height: 100vh;
@@ -21,6 +24,7 @@
   width: 40px;
   height: 40px;
   background: #D4AF8E;
+  cursor: pointer;
 }
 .hero .down-arrow svg {
   width: 50%;

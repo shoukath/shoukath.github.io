@@ -42,7 +42,20 @@
     </nav> -->
     <nav class="navbar navbar-dark fixed-top">
       <a class="navbar-brand" href="#">
-        <img src="./images/HK-logo_white.svg" width="60" class="d-inline-block align-top" alt="">
+        <svg viewBox="0 0 240 240" id="logo-svg">
+          <g id="Hk_x5F_Logo_2_">
+            <g>
+              <path class="st0" d="M9.2,142.6h8.4V7.4H9.3c-1.4,0-2.5,1.1-2.5,2.5v130.2C6.8,141.5,7.9,142.6,9.2,142.6z"/>
+              <polyline class="st0" points="189.6,7.4 177.1,7.4 137.6,80.1 137.6,7.4 126.8,7.4 126.8,100 116.8,118 116.8,95.6 116.8,95.6 
+                116.8,85.6 116.8,85.6 116.8,7.4 106,7.4 106,7.4 105.9,7.4 105.9,74.7 96,74.7 85.1,74.7 38.3,74.7 38.3,7.4 27.4,7.4 27.4,85.6 
+                105.9,85.6 105.9,95.6 27.4,95.6 27.4,142.4 38.3,142.4 38.3,106.4 85.1,106.4 96,106.4 105.9,106.4 105.9,142.6 115.9,142.6 
+                115.9,142.6 116.8,142.6 		"/>
+              <polygon class="st0" points="213.2,7.4 200.9,7.4 127.1,142.6 139.5,142.6 157.7,109 176.2,142.6 188.5,142.6 164,97.6 
+                169.5,87.3 199.8,142.6 212.1,142.6 175.8,76 		"/>
+            </g>
+          </g>
+          </svg>
+          <img src="./images/HK-logo_white.svg" width="60" class="d-inline-block align-top" alt="" id="logo" style="visibility: hidden;">
       </a>
     </nav>
     <div class="container-fluid hero d-flex justify-content-center align-items-center">
@@ -157,21 +170,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <script>
-        //Refer this article for setup
-        // https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
-        var $form = $('form.contact-form'),
-        url = 'https://script.google.com/macros/s/AKfycbxJPGLh67OhZvRcET47CHHwkG7-F6yQusM-fXyCRrP1HYY9m2s/exec'
-        $form.find('button[type="submit"]').on('click', function(e) {
-          e.preventDefault();
-          var jqxhr = $.ajax({
-            url: url,
-            method: "GET",
-            dataType: "json",
-            data: $form.serialize()
-          });
-          });
-      </script>
-
+    <script src="../scripts/scroll.js"></script>
+    <script src="../scripts/contact-form.js"></script>
   </body>
 </html>
