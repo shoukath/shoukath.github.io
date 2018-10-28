@@ -113,23 +113,23 @@
           <h4 class="section-header text-center text-uppercase font-weight-bold">Say hello!</h4>
           <div class="row">
               <div id="contact-us-form-container" class="col-md-8 p-3">
-                  <form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="AjaxForm">
+                  <form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="contact-form">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                        <input type="text" class="form-control" name="name" placeholder="Name">
                       </div>
                       <div class="form-group col-md-6">
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
-                        <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject">
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-9">
-                        <input type="text" class="form-control" id="inputMessage" placeholder="Write your message">
+                        <input type="text" class="form-control" name="message" placeholder="Write your message">
                       </div>
                       <div class="form-group col-md-3 pt-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -151,62 +151,6 @@
             </div>
       </div>
     </div>
-    <!-- Begin Freedback Form -->
-<!-- DO NOT EDIT YOUR FORM HERE, PLEASE LOG IN AND EDIT AT FREEDBACK.COM -->
-<form enctype="multipart/form-data" method="post" action="https://www.freedback.com/mail.php" accept-charset="UTF-8" class="AjaxForm1" style="display: none;">
-	<div>
-		<input type="hidden" name="acctid" id="acctid" value="sags9nntwrn3uthw" />
-		<input type="hidden" name="formid" id="formid" value="1309643" />
-		<input type="hidden" name="required_vars" id="required_vars" value="name,email" />
-	</div>
-	<table cellspacing="5" cellpadding="5" border="0">
-		<tr>
-			<td valign="top">
-				<strong>Name:</strong>
-			</td>
-			<td valign="top">
-				<input type="text" name="name" id="name" size="40" value="" />
-				
-			</td>
-		</tr>
-		<tr>
-			<td valign="top">
-				<strong>Email Address:</strong>
-			</td>
-			<td valign="top">
-				<input type="text" name="email" id="email" size="40" value="" />
-				
-			</td>
-		</tr>
-		<tr>
-			<td valign="top">
-				<strong>Subject</strong>
-			</td>
-			<td valign="top">
-				<input type="text" name="field-8f1e5d2ce0d0a14" id="field-8f1e5d2ce0d0a14" size="40" value="" />
-				
-			</td>
-		</tr>
-		<tr>
-			<td valign="top">
-				<strong>Message</strong>
-			</td>
-			<td valign="top">
-				<textarea name="field-629cfa0ad934f5e" id="field-629cfa0ad934f5e" rows="6" cols="40"></textarea>
-				
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<input type="submit" value=" Submit Form " />
-			</td>
-		</tr>
-	</table>
-</form>
-<br><br><br>
-<!-- End Freedback Form -->
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -217,22 +161,21 @@
   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script>
-        $(document).on('submit', 'form.AjaxForm', function() {            
-              jQuery.ajax({
-                  url     : $(this).attr('action'),
-                  type    : $(this).attr('method'),
-                  dataType: 'json',
-                  data    : $(this).serialize(),
-                  success : function( data ) {
-                              //  alert('Submitted');
-                  },
-                  error   : function( xhr, err ) {
-                              //  alert('Error');     
-                  }
-              });    
-              return false;
+      <script>
+        //Refer this article for setup
+        // https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
+          var $form = $('form.contact-form'),
+          url = 'https://script.google.com/macros/s/AKfycbxJPGLh67OhZvRcET47CHHwkG7-F6yQusM-fXyCRrP1HYY9m2s/exec'
+          $form.find('button[type="submit"]').on('click', function(e) {
+            e.preventDefault();
+            var jqxhr = $.ajax({
+              url: url,
+              method: "GET",
+              dataType: "json",
+              data: $form.serialize()
+            });
           });
       </script>
+
   </body>
 </html>
