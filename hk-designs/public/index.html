@@ -109,7 +109,7 @@
     </div>
 
     <div class="container">
-      <div id="contact-us" class="d-flex flex-column">
+      <div id="contact-us" class="d-flex flex-column mb-5">
           <h4 class="section-header text-center text-uppercase font-weight-bold">Say hello!</h4>
           <div class="row">
               <div id="contact-us-form-container" class="col-md-8 p-3">
@@ -154,26 +154,22 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <script>
         //Refer this article for setup
         // https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
-          var $form = $('form.contact-form'),
-          url = 'https://script.google.com/macros/s/AKfycbxJPGLh67OhZvRcET47CHHwkG7-F6yQusM-fXyCRrP1HYY9m2s/exec'
-          $form.find('button[type="submit"]').on('click', function(e) {
-            e.preventDefault();
-            var jqxhr = $.ajax({
-              url: url,
-              method: "GET",
-              dataType: "json",
-              data: $form.serialize()
-            });
+        var $form = $('form.contact-form'),
+        url = 'https://script.google.com/macros/s/AKfycbxJPGLh67OhZvRcET47CHHwkG7-F6yQusM-fXyCRrP1HYY9m2s/exec'
+        $form.find('button[type="submit"]').on('click', function(e) {
+          e.preventDefault();
+          var jqxhr = $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            data: $form.serialize()
+          });
           });
       </script>
 

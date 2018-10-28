@@ -75,7 +75,7 @@
 }
 #contact-us #contact-us-form-container input[type=text]::placeholder,
 #contact-us #contact-us-form-container input[type=email]::placeholder {
-  color: white;
+  color: #888;
 }
 #contact-us #contact-us-form-container input[type=submit],
 #contact-us #contact-us-form-container button[type=submit] {
