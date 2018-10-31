@@ -12,6 +12,24 @@
     height: 100vh;
 }
 
+.up-arrow {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: grey;
+    transform: rotate(180deg);
+    z-index: 100;
+    cursor: pointer;
+    visibility: hidden;
+    // rotate (180deg);
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
 
 .hero {
     // display: flex;
@@ -85,6 +103,7 @@
         background-image: url(../images/Dotted_World-Map.svg);
         background-color: @color-dark-blue;
         background-size: 100%;
+        background-position: center;
         color: #fff;
         input, button {
             border-radius: 0;
