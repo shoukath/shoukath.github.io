@@ -1,5 +1,16 @@
 @color-cream: #D4AF8E;
 @color-dark-blue: #272530;
+.opacity (@opacity: 0.5) {
+	-webkit-opacity: @opacity;
+	-moz-opacity: @opacity;
+	opacity: @opacity;
+}
+.rotate (@deg) {
+	-webkit-transform: rotate(@deg);
+	-moz-transform: 	 rotate(@deg);
+	-ms-transform: 		 rotate(@deg);
+	-o-transform: 		 rotate(@deg);
+}
 .navbar-brand {
     // background: #be1e2d;
     // position: fixed;
@@ -19,11 +30,11 @@
     right: 30px;
     bottom: 30px;
     background: grey;
-    transform: rotate(180deg);
+    .rotate(180deg);
+    .opacity(0.8);
     z-index: 100;
     cursor: pointer;
     visibility: hidden;
-    // rotate (180deg);
     svg {
       height: 30px;
       width: 30px;
