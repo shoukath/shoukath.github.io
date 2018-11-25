@@ -207,3 +207,17 @@ var checkMotionAppStatus = function () {
 
 setInterval(checkMotionAppStatus, 60000);
 checkMotionAppStatus();
+
+
+//Reminders
+var beginningTime = moment('9:00pm', 'h:mma');
+var endTime = moment('9:01pm', 'h:mma');
+var reminders = function() {
+	if (moment().isBetween(beginningTime, endTime)) {
+		$('#reminders').css('display', 'flex');
+	} else {
+		$('#reminders').css('display', 'none');
+	}
+}
+setInterval(reminders, 1000);
+reminders();

@@ -4,7 +4,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 }
-#camera-container {
+#camera-container, #reminders {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -17,6 +17,14 @@ body {
 	height: 540px;
 	background: #FFF;
 	border: 3px solid #ccc;
+}
+#reminders {
+	background: #CC3300;
+	z-index: 10;
+	justify-content: center;
+	font-size: 160px;
+	text-align: center;
+	display: none;
 }
 #upper-container {
 	background: #000;
