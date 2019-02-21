@@ -109,7 +109,8 @@ var getCurrentWeatherInfo = function () {
 	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json?date=' + new Date().toISOString())
 		.then(function(response) {
 			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
-			$('#wind-info').html('<b>Wind:</b> ' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir);
+			var windIcon = $('#wind-svg');
+			$('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir + '</span>');
 		});
 	// $('#weather').html(35 + '&deg;');
 };
