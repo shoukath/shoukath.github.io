@@ -47,7 +47,7 @@ function insideData () {
 		$('.weather .inside').html('N/A');
 	});
 
-	secondBedroomData();
+	// secondBedroomData();
 }
 
 var secondBedroomData = function () {
@@ -109,6 +109,7 @@ var getCurrentWeatherInfo = function () {
 	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json?date=' + new Date().toISOString())
 		.then(function(response) {
 			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
+			$('#wind-info').html('<b>Wind:</b> ' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir);
 		});
 	// $('#weather').html(35 + '&deg;');
 };
