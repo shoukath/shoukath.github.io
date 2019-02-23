@@ -110,7 +110,8 @@ var getCurrentWeatherInfo = function () {
 		.then(function(response) {
 			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
 			var windIcon = $('#wind-svg');
-			$('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir + '</span>');
+			// $('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir + '</span>');
+			$('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + ' mph</span>');
 		});
 	// $('#weather').html(35 + '&deg;');
 };
