@@ -142,11 +142,3 @@ body {
 #wind-info span{
 	vertical-align: top;
 }
-
-@keyframes fadeIn {
-	from { opacity: 0; }
-}
-
-.pulsate {
-	animation: fadeIn 1s infinite alternate;
-}
