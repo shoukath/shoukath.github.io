@@ -137,7 +137,11 @@ var set10DayForecast  = function(data) {
 		var high = forecast.high.fahrenheit;
 		var low = forecast.low.fahrenheit;
 		var day = forecast.date.weekday_short + ' ' + forecast.date.day;
-		var iconUrl = '<img src="' + forecast.icon_url + '" class="icon"/>';
+		var pulsateClass = 'pulsate';
+		if (Math.round(forecast.snow_allday.in) >= 2) {
+			pulsateClass = 'pulsate';
+		}
+		var iconUrl = '<img src="' + forecast.icon_url + '" class="icon ' + pulsateClass + '"/>';
 		if (index < 8) {
 			$('.forecast-by-day table').append('<tr><td>' + day + ' </td><td>&nbsp;'+iconUrl+'</td><td>' + high + '&deg;/' + low + '&deg;</td></tr>');
 		}
