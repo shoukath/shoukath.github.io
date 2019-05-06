@@ -10,6 +10,14 @@ var clock = {
 	}
 }
 
+var kelvinToFarenheit = function (kelvin) {
+	// Celsius is 273 degrees less than Kelvin
+	const celsius = kelvin - 273;
+
+	// Calculating Fahrenheit temperature to the nearest integer
+	return Math.round(celsius * (9/5) + 32);
+}
+
 function setClock() {
 	document.querySelector('#clock .time').innerHTML = clock.getTime();
 	document.querySelector('#clock .date').innerHTML = clock.getDate();
@@ -106,13 +114,21 @@ function clickHandler() {
 document.querySelector('#upper-container').addEventListener('click', clickHandler, false);
 
 var getCurrentWeatherInfo = function () {
-	$.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json?date=' + new Date().toISOString())
-		.then(function(response) {
-			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
-			var windIcon = $('#wind-svg');
-			// $('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir + '</span>');
-			$('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + ' mph</span>');
-		});
+	// $.ajax('http://api.wunderground.com/api/fecf8ea800958a0e/conditions/q/CA/60089.json?date=' + new Date().toISOString())
+	// 	.then(function(response) {
+	// 		$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
+	// 		var windIcon = $('#wind-svg');
+	// 		// $('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + 'mph ' + response.current_observation.wind_dir + '</span>');
+	// 		$('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.current_observation.wind_mph) + ' mph</span>');
+	// 	});
+	$.ajax('http://api.openweathermap.org/data/2.5/weather?zip=60089,us&appid=2582a2e9cef8a5f40eac0188c9a5c81a')
+	.then(function(response) {
+		$('#weather-container .current').html(kelvinToFarenheit(response.main.temp) + '&deg;');
+		var windIcon = $('#wind-svg');
+		$('#wind-info').html(windIcon[0].outerHTML + ' <span>' + Math.round(response.wind.speed) + ' mph</span>');
+		$('#weather-container .today').html(kelvinToFarenheit(response.main.temp_max) + '&deg;/' + kelvinToFarenheit(response.main.temp_min) + '&deg;');
+	});
+	
 	// $('#weather').html(35 + '&deg;');
 };
 
